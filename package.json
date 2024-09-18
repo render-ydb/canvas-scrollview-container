@@ -1,0 +1,53 @@
+{
+  "name": "@x.render/canvas-scrollview-container",
+  "version": "1.0.0",
+  "description": "ScrollView is a component that wraps scrolling operations. A certain height is needed to ensure the normal display of ScrollView.",
+  "author": "yangdaobo.render@gmail.com",
+  "homepage": "",
+  "license": "MIT",
+  "main": "build/lib/index.js",
+  "module": "build/es/index.js",
+  "types": "build/lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/render-x/render-mobile-components.git"
+  },
+  "scripts": {
+    "prepare": "npx render-lint init  --force",
+    "start": "render-builder start",
+    "build": "render-builder build",
+    "prepublishOnly": "npm run build",
+    "eslint-fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
+    "stylelint-fix": "stylelint --fix src**/*.{css,scss,less}",
+    "render-lint-fix": "npm run eslint-fix && npm run stylelint-fix"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@x.render/build-react-component-webpack-preset": "^1.15.0",
+    "@x.render/render-lint": "^1.1.2",
+    "@x.render/render-view": "^1.10.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.9.5"
+  },
+  "gitHead": "eac2394e3c9cf17accf58cd8bca31918cc1f256f",
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": "eslint",
+    "src/**/*.{css,scss,less}": "stylelint"
+  }
+}
