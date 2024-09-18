@@ -1,17 +1,28 @@
-.render-scrollview-vertical {
-    display: flex;
-    flex-direction: column;
+.inline-style-render-scrollview {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-content: flex-start;
+  border: 0 solid black;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.inline-style-render-scrollview-vertical {
+  display: flex;
+  flex-direction: column;
 }
 
-.render-scrollview-horizontal {
-    display: flex;
-    flex-direction: row;
+.inline-style-render-scrollview-horizontal {
+  display: flex;
+  flex-direction: row;
 }
 
-.render-scrollview-content-container-horizontal {
-    flex-direction: row;
+.inline-style-render-scrollview-content-container-horizontal {
+  flex-direction: row;
 }
 
-.render-scrollview-webcontainer {
-    display: block;
+.inline-style-render-scrollview-webcontainer {
+  display: block;
 }

@@ -5,7 +5,6 @@ import {
   useRef,
   useImperativeHandle,
 } from 'react';
-import View from '@x.render/render-view';
 import cx from 'classnames';
 import throttle from './throttle';
 import Timer from './timer';
@@ -16,8 +15,8 @@ type strOrNum = string | number;
 
 const FULL_WIDTH = 750;
 const ANIMATION_DURATION = 400;
-const STYLE_NODE_ID = 'render-scrollview-style';
-const baseCls = 'render-scrollview';
+const STYLE_NODE_ID = 'inline-style-render-scrollview-style';
+const baseCls = 'inline-style-render-scrollview';
 let pixelRatio;
 
 function scrollTo(
@@ -25,7 +24,7 @@ function scrollTo(
   x: strOrNum,
   y: strOrNum,
   animated: boolean,
-  duration: number
+  duration: number,
 ) {
   const scrollView = scrollerRef.current;
   const scrollLeft = scrollView.scrollLeft;
@@ -93,8 +92,8 @@ const translateToPx = (origin: strOrNum): number => {
 };
 
 const ScrollView: ForwardRefRenderFunction<
-  ScrollViewRefObject,
-  ScrollViewProps
+ScrollViewRefObject,
+ScrollViewProps
 > = (props, ref) => {
   let {
     className,
@@ -192,7 +191,7 @@ const ScrollView: ForwardRefRenderFunction<
         translateToPx(x),
         translateToPx(y),
         animated,
-        duration
+        duration,
       );
     },
     scrollIntoView(
@@ -202,7 +201,7 @@ const ScrollView: ForwardRefRenderFunction<
         duration?: number;
         offsetX?: number;
         offsetY?: number;
-      } = {}
+      } = {},
     ) {
       const {
         id,
@@ -232,19 +231,19 @@ const ScrollView: ForwardRefRenderFunction<
 
   if (style) {
     const childLayoutProps = ['alignItems', 'justifyContent'].filter(
-      (prop) => style[prop] !== undefined
+      (prop) => style[prop] !== undefined,
     );
     if (childLayoutProps.length !== 0) {
       console.warn(
         'ScrollView child layout (' +
           JSON.stringify(childLayoutProps) +
-          ') must be applied through the contentContainerStyle prop.'
+          ') must be applied through the contentContainerStyle prop.',
       );
     }
   }
 
   const contentContainer = (
-    <View
+    <div
       ref={contentContainerRef}
       className={cx({
         [`${baseCls}-content-container-horizontal`]: horizontal,
@@ -253,7 +252,7 @@ const ScrollView: ForwardRefRenderFunction<
       style={contentContainerStyle}
     >
       {children}
-    </View>
+    </div>
   );
   const scrollerStyle: CSSProperties = {
     ...style,
@@ -265,7 +264,7 @@ const ScrollView: ForwardRefRenderFunction<
   const cls = cx(
     baseCls,
     `${baseCls}-${horizontal ? 'horizontal' : 'vertical'}`,
-    className
+    className,
   );
   let showsScrollIndicator = horizontal
     ? showsHorizontalScrollIndicator
@@ -297,7 +296,7 @@ const ScrollView: ForwardRefRenderFunction<
     scrollerStyle.overflowY = 'hidden';
   }
   return (
-    <View
+    <div
       {...rest}
       ref={scrollerRef}
       className={cls}
@@ -309,7 +308,7 @@ const ScrollView: ForwardRefRenderFunction<
       }
     >
       {contentContainer}
-    </View>
+    </div>
   );
 };
 

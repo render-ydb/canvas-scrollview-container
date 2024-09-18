@@ -1,13 +1,13 @@
 {
   "name": "@x.render/canvas-scrollview-container",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "ScrollView is a component that wraps scrolling operations. A certain height is needed to ensure the normal display of ScrollView.",
   "author": "yangdaobo.render@gmail.com",
   "homepage": "",
   "license": "MIT",
-  "main": "build/lib/index.js",
-  "module": "build/es/index.js",
-  "types": "build/lib/index.d.ts",
+  "main": "build/esm/index.js",
+  "module": "build/cjs/index.js",
+  "types": "build/esm/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -34,7 +34,7 @@
   "dependencies": {
     "@x.render/build-react-component-webpack-preset": "^1.15.0",
     "@x.render/render-lint": "^1.1.2",
-    "@x.render/render-view": "^1.10.0"
+    "classnames": "^2.5.1"
   },
   "peerDependencies": {
     "react": "^18.2.0"
